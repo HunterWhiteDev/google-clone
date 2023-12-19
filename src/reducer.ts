@@ -4,15 +4,22 @@ export const initialState = {
 
 export const actionTypes = {
   SET_SEARCH_TERM: "SET_SEARCH_TERM",
+  SET_SEARCH_TYPE: "SET_SEARCH_TYPE",
 };
 
-const reducer = (state, action) => {
-  console.log("Action logged: ", action);
+const reducer = (state: any, action: any) => {
+  console.log(state, action);
   switch (action.type) {
-    case "SET_SEARCH_TYPE":
+    case "SET_SEARCH_TERM":
       return {
         ...state,
         term: action.term,
+      };
+    case "SET_SEARCH_TYPE":
+      console.log("test");
+      return {
+        ...state,
+        searchType: action.searchType,
       };
 
     default:

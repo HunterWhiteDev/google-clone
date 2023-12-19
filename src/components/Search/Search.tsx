@@ -3,33 +3,36 @@ import { MicOutlined, SearchRounded } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Search.css";
-import { useStateValue } from "./StateProvider";
-import { actionTypes } from "./reducer";
-function Search({ hideButtons }) {
+import { useStateValue } from "../../StateProvider";
+
+interface SearchProps {
+  hideButtons?: boolean;
+}
+
+function Search({ hideButtons }: SearchProps) {
   const [input, setInput] = useState("");
   const history = useHistory();
 
-  const [{}, dispatch] = useStateValue();
+  const [{ term }, dispatch]: any = useStateValue();
 
-  const search = (e) => {
+  const search = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("You hit the search button");
-    //do something
     history.push("/search");
 
     dispatch({
-      type: "SET_SEARCH_TYPE",
+      type: "SET_SEARCH_TERM",
       term: input,
     });
   };
 
-  const handleChange = (e) => setInput(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInput(e.target.value);
 
   return (
     <form className="search">
       <div className="search__input">
         <SearchRounded className="search__inputIcon" />
-        <input onChange={handleChange} value={input} />
+        <input onChange={handleChange} value={input || term} />
         <MicOutlined />
       </div>
 

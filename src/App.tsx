@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import Home from "./Home";
+import Home from "./screens/Home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SearchPage from "./SearchPage";
+import SearchPage from "./screens/SearchPage/SearchPage";
 function App() {
   return (
     <div className="App">

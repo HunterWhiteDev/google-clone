@@ -17,6 +17,7 @@
   font-size: medium;
   border: none;
   outline: none;
+  background-color: white;
 }
 
 .search__inputIcon {
