@@ -1,11 +1,3 @@
-# Getting Started
-
-To login, use the following credentials:
-
-email/username: `123@test.com`
-
-password: `password`
-
 ### `Home Page`
 
 Search for something interesting...
